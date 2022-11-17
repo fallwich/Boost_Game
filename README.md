@@ -8,7 +8,13 @@ OmniSharp.MSBuild.ProjectLoader         .NETFramework,Version=v4.7.1의 참조 �
 https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net471-developer-pack-offline-installer
 
 
-https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html - SceneManager에 대한 설명
+https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html - SceneManager
+
+
 public static void LoadScene(int sceneBuildIndex, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single);
+
+
 현재 씬을 가져올 수 있는 LoadScene
+
+
 using UnityEngine.SceneManagement; using 해야 사용 가능
