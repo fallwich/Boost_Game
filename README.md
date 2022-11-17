@@ -5,4 +5,4 @@ OmniSharp.MSBuild.ProjectLoader         .NETFramework,Version=v4.7.1의 참조 �
 
 .Net framework, Version 4.7.1 Developer Pack 다운으로 해결.
 
-###(https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net471-developer-pack-offline-installer)
+https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net471-developer-pack-offline-installer
