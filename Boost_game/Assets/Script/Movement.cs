@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] float mainThrust = 100f;
+    [SerializeField] float mainThrust = 100f; //매개변수 편집기에서 수정 가능하다.
     [SerializeField] float rotationThrust = 1f;
-    Rigidbody rb; // rb = rigidbody
+    [SerializeField] AudioClip mainEngine;
+    Rigidbody rb; // rb = rigidbody //cache 캐싱 가독성이 좋다.
     AudioSource audioSource;
     
+    bool isAlive;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +31,10 @@ public class Movement : MonoBehaviour
         {
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime); 
             //프레임율에 영향을 받지 않게 Time.deltaTime(알아서 계산 해주는 함수)을 사용
-            if(!audioSource.isPlaying)
+            if(!audioSource.isPlaying) 
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine); //audioSource.Play는 효과음이 하나일 때 효과적이다.
+                // AudioSource.PlayOneShot은 여러개의 효과음 사용 가능.
             }
             
         }

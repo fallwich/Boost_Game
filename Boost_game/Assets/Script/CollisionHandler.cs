@@ -5,8 +5,20 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] float levelLoadDelay = 2f;
+    [SerializeField] AudioClip success;
+    [SerializeField] AudioClip crash;
+    AudioSource audioSource;
+    bool isTransitioning = false;
+    private void Start() 
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void OnCollisionEnter(Collision other) 
     {
+        if (isTransitioning) {return;}
+        //장애물이나 도착 지점에 갔을 때 isTransitioning이 true로 변하고
+        //true면 아무것도 하지 않는다. false인 상태에서 swithch문을 실행하기 때문에
+        //sound와 재시작, 다음 Scene으로 넘어가고 sound가 겹치지 않게 된다.
         switch (other.gameObject.tag)
         {
             case "Friendly":
@@ -23,12 +35,18 @@ public class CollisionHandler : MonoBehaviour
 
     void StartSuccessSequence() // Finish에 도착하면 다음 Scene으로 이동 Rocket은 잠시 못움직임.
     {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(success);
         GetComponent<Movement>().enabled = false;
         Invoke("LoadNextLevel", levelLoadDelay);
     }
 
     void StartCrashSequence()
     {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(crash);
         GetComponent<Movement>().enabled = false;
         //장애물에 닿으면 Rocket의 제어권을 false 시키고 시작 지점으로 돌아간다.
         Invoke("ReloadLevel", levelLoadDelay);
