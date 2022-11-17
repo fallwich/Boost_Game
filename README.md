@@ -1,4 +1,4 @@
-# Boost_Game
+# Boost_Game 오류 및 공부
 OmniSharp.MSBuild.ProjectLoader         .NETFramework,Version=v4.7.1의 참조 어셈블리를 찾을 수 없습니다.
 
 오류가 발생 - Vscode에서 Unity Class가 자동완성이 안됨.
@@ -28,3 +28,11 @@ Invoke 메서드가 X초 동안 지연된 이후 실행되게 할 수 있다.
 
 
 Invoke("MethodName", delayInSeconds);
+
+AudioSource audioSource; - cache 캐싱 가독성이나 속도가 빠르게 처리 가능.
+
+audioSource.Play() -- 효과음이 하나일 때 효과적.
+
+audioSource.PlayOneShot() -- 여러개의 효과음 사용 가능.
+
+audioSource.Stop() -- 진행중인 효과음 중단.
