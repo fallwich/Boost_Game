@@ -18,3 +18,7 @@ public static void LoadScene(int sceneBuildIndex, SceneManagement.LoadSceneMode 
 
 
 using UnityEngine.SceneManagement; using 해야 사용 가능
+
+SceneManager.GetActiveScene().buildIndex 현재 Scene Index
+
+SceneManager.sceneCountInBuildSettings 총 Scene의 수
