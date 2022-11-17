@@ -22,3 +22,9 @@ using UnityEngine.SceneManagement; using 해야 사용 가능
 SceneManager.GetActiveScene().buildIndex 현재 Scene Index
 
 SceneManager.sceneCountInBuildSettings 총 Scene의 수
+
+
+Invoke 메서드가 X초 동안 지연된 이후 실행되게 할 수 있다.
+
+
+Invoke("MethodName", delayInSeconds);
