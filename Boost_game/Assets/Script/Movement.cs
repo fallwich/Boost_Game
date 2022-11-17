@@ -45,6 +45,8 @@ public class Movement : MonoBehaviour
 
     public void ApplyRotation(float rotationThisFrame)
     {
+        rb.freezeRotation = true; // 수동 제어를 위한 회전 고정
         transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
+        rb.freezeRotation = false; // 물리 시스템이 적용 되도록 회전 고정 헤제
     }
 }
