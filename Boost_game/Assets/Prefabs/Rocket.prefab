@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1010494764}
   - component: {fileID: 1010494763}
   - component: {fileID: 1521287517}
+  - component: {fileID: 210751698}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainThrust: 700
-  rotationThrust: 100
+  rotationThrust: 150
 --- !u!82 &1521287517
 AudioSource:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2a5f13e9338843842b95c48cecc96d6a, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -226,3 +227,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &210751698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881811841061646172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5681052bc458f2d47a3704f2c6afd07c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
