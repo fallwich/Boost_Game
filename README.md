@@ -36,3 +36,10 @@ audioSource.Play() -- 효과음이 하나일 때 효과적.
 audioSource.PlayOneShot() -- 여러개의 효과음 사용 가능.
 
 audioSource.Stop() -- 진행중인 효과음 중단.
+
+ParticleSystem.Play() --particle 실행.
+
+Looping -오디오와 비슷하게 파티클이 계속 실행(부스트 시 사용), Play On Awake -게임 시작시 바로 실행.
+
+
+
