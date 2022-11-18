@@ -11,15 +11,38 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem successParticle;
     [SerializeField] ParticleSystem crashParticle;
     AudioSource audioSource;
-    
+    bool collisionDisabled = false;
     bool isTransitioning = false;
     private void Start() 
     {
         audioSource = GetComponent<AudioSource>();
     }
+    void Update() 
+    {
+        RespondToDebugKeys();
+    }
+    void RespondToDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        else if(Input.GetKeyDown(KeyCode.C))
+        {
+            collisionDisabled = !collisionDisabled; //toggle collision 토글한다.
+            if(collisionDisabled == false)
+            {
+                Debug.Log("false");
+            }
+            else
+            {
+                Debug.Log("true");
+            }
+        }
+    }
     void OnCollisionEnter(Collision other) 
     {
-        if (isTransitioning) {return;}
+        if (isTransitioning || collisionDisabled) {return;}
         //장애물이나 도착 지점에 갔을 때 isTransitioning이 true로 변하고
         //true면 아무것도 하지 않는다. false인 상태에서 swithch문을 실행하기 때문에
         //sound와 재시작, 다음 Scene으로 넘어가고 sound가 겹치지 않게 된다.

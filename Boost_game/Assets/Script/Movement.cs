@@ -13,7 +13,6 @@ public class Movement : MonoBehaviour
     Rigidbody rb; // rb = rigidbody //cache 캐싱 가독성이 좋다.
     AudioSource audioSource;
     ParticleSystem boost;
-    
     bool isAlive;
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,6 @@ public class Movement : MonoBehaviour
         ProcessThrust();
         ProcessRotation();
     }
-
     void ProcessThrust()
     {
         if (Input.GetKey(KeyCode.Space))
