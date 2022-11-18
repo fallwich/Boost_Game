@@ -7,7 +7,11 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float levelLoadDelay = 2f;
     [SerializeField] AudioClip success;
     [SerializeField] AudioClip crash;
+
+    [SerializeField] ParticleSystem successParticle;
+    [SerializeField] ParticleSystem crashParticle;
     AudioSource audioSource;
+    
     bool isTransitioning = false;
     private void Start() 
     {
@@ -39,6 +43,7 @@ public class CollisionHandler : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(success);
         GetComponent<Movement>().enabled = false;
+        successParticle.Play();
         Invoke("LoadNextLevel", levelLoadDelay);
     }
 
@@ -49,6 +54,7 @@ public class CollisionHandler : MonoBehaviour
         audioSource.PlayOneShot(crash);
         GetComponent<Movement>().enabled = false;
         //장애물에 닿으면 Rocket의 제어권을 false 시키고 시작 지점으로 돌아간다.
+        crashParticle.Play();
         Invoke("ReloadLevel", levelLoadDelay);
     }
     void ReloadLevel()

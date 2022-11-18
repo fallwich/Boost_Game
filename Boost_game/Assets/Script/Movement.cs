@@ -7,8 +7,12 @@ public class Movement : MonoBehaviour
     [SerializeField] float mainThrust = 100f; //매개변수 편집기에서 수정 가능하다.
     [SerializeField] float rotationThrust = 1f;
     [SerializeField] AudioClip mainEngine;
+    [SerializeField] ParticleSystem mainEngineParticels;
+    [SerializeField] ParticleSystem rightThrusterParticels;
+    [SerializeField] ParticleSystem leftThrusterParticels;
     Rigidbody rb; // rb = rigidbody //cache 캐싱 가독성이 좋다.
     AudioSource audioSource;
+    ParticleSystem boost;
     
     bool isAlive;
     // Start is called before the first frame update
@@ -16,6 +20,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        boost = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -36,13 +41,16 @@ public class Movement : MonoBehaviour
                 audioSource.PlayOneShot(mainEngine); //audioSource.Play는 효과음이 하나일 때 효과적이다.
                 // AudioSource.PlayOneShot은 여러개의 효과음 사용 가능.
             }
-            
+            if(!mainEngineParticels.isPlaying)
+            {
+                mainEngineParticels.Play();
+            }
         }
         else
         {
             audioSource.Stop();
+            mainEngineParticels.Stop();
         }
-
     }
 
     void ProcessRotation()
@@ -50,10 +58,23 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             ApplyRotation(rotationThrust);
+            if(!rightThrusterParticels.isPlaying)
+            {
+                rightThrusterParticels.Play();
+            }
         }
         else if (Input.GetKey(KeyCode.D))
         {
             ApplyRotation(-rotationThrust);
+            if(!leftThrusterParticels.isPlaying)
+            {
+                leftThrusterParticels.Play();
+            }
+        }
+        else
+        {
+            rightThrusterParticels.Stop();
+            leftThrusterParticels.Stop();
         }
     }
 
