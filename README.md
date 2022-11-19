@@ -41,5 +41,16 @@ ParticleSystem.Play() --particle 실행.
 
 Looping -오디오와 비슷하게 파티클이 계속 실행(부스트 시 사용), Play On Awake -게임 시작시 바로 실행.
 
+Movement Factor - 0: 움직이지 않음, 1: 움직임
 
+Offset = Movement Factor * Moverment Vector
 
+Mathf.Sin - radians에 값을 넣으면 -1 ~ 1 사이의 값이 나온다.
+
+Mathf.Epsilon - float에서 가장 작은 수, float 수를 비교할 때 정확히 같을 수가 없다.
+
+그러므로 Epsilon을 사용하여 오차 범위를 설정해야 한다.
+
+배경 꾸미는 법 - Material - Lighting - skybox Material에서 선택
+
+Inspector에서 shader - standard - skybox - procedural 변경.
